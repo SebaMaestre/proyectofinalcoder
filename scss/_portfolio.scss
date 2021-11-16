@@ -1,86 +1,36 @@
-#gallery {
-  background-color: #747877;
-  ul {
-    list-style-type: none;
-    li {
-      padding: 0.3rem;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      .mosaicItem {
-        width: 400px;
-        height: 400px;
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-        & > a {
-          .text {
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            font-family: "Open Sans", sans-serif;
-            text-align: center;
-            font-weight: 600;
-            line-height: 50px;
-            transition: all 0.5s ease-in-out;
-            opacity: 0;
-          }
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 33%;
+  max-width: 33%;
+  
+}
 
-          &:hover .text {
-            bottom: 0;
-            opacity: 1;
-          }
-        }
-      }
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+.containerPortfolio{ 
+  background-color: #94a09e;
+}
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
 
-      .popin {
-        display: flex;
-        text-align: center;
-        position: fixed;
-        top: -100%;
-        transition: all ease 0.5s;
-        opacity: 0;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        justify-content: center;
-        align-items: center;
-        z-index: 998;
-        &:target {
-          top: 0;
-          opacity: 1;
-
-          .imgBox {
-            position: relative;
-            z-index: 998;
-
-            &:before {
-              content: "✖";
-              position: absolute;
-              right: 10px;
-              top: 10px;
-              color: white;
-              z-index: 998;
-            }
-
-            img {
-              border: 3px solid white;
-            }
-          }
-        }
-
-        .overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          background: rgba(0, 0, 0, 0.7);
-          width: 100%;
-          height: 100%;
-          z-index: 899;
-        }
-      }
-    }
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
   }
 }
